@@ -25,15 +25,23 @@ Things you may want to cover:
 
 
 # API Back End Setup
+```
+$ rails db:create 
 
-`$ rails db:create  `
-`$ bundle add rspec-rails  `
-`$ rails g rspec:install  `
-`$ rails s  `
+$ bundle add rspec-rails 
+
+$ rails g rspec:install  
+
+$ rails s  
+```
 - check to make sure app is working 
-`$ rails g resource Cat name:string age:integer enjoys:text `
-`$ rails db:migrate `
-`$ rspec spec `
+```
+$ rails g resource Cat name:string age:integer enjoys:text 
+
+$ rails db:migrate 
+
+$ rspec spec 
+```
 - check to make sure rspec is working  
  
  ## Seeds
@@ -50,12 +58,15 @@ end
 `$ rails db:seed`
 
 ## troubleshooting
+```
+$ rails db:drop 
 
-`$ rails db:drop `
-`$ rails db:create `
-`$ rails db:migrate `
-`$ rails db:seed `
+$ rails db:create 
 
+$ rails db:migrate 
+
+$ rails db:seed 
+```
 
 ## API CORS
 
