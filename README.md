@@ -24,18 +24,20 @@ Things you may want to cover:
 * ...
 
 
-# API Backend Setup
-$ rails db:create
-$ bundle add rspec-rails
-$ rails g rspec:install
-$ rails s
-<!-- check to make sure app is working -->
-$ rails g resource Cat name:string age:integer enjoys:text
-$ rails db:migrate
-$ rspec spec
-<!-- check to make sure rspec is working -->
+# API Back End Setup
+
+`$ rails db:create  `
+`$ bundle add rspec-rails  `
+`$ rails g rspec:install  `
+`$ rails s  `
+- check to make sure app is working 
+`$ rails g resource Cat name:string age:integer enjoys:text `
+`$ rails db:migrate `
+`$ rspec spec `
+- check to make sure rspec is working  
  
  ## Seeds
+db/seeds.rb 
 
  ```ruby
  cats = [...]
@@ -45,17 +47,20 @@ $ rspec spec
     puts "creating cat #{attributes}"
 end
 ```
-$ rails db:seed
+`$ rails db:seed`
 
 ## troubleshooting
-$ rails db:drop
-$ rails db:create
-$ rails db:migrate
-$ rails db:seed
+
+`$ rails db:drop `
+`$ rails db:create `
+`$ rails db:migrate `
+`$ rails db:seed `
+
 
 ## API CORS
 
-app/controllers/application_controller.rb
+app/controllers/application_controller.rb 
+
 ```ruby
     skip_before_action :verify_authenticity_token
 ```
@@ -76,4 +81,4 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 end
 ```
-$ bundle install
+`$ bundle install`
