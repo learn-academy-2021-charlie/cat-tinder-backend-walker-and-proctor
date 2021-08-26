@@ -74,4 +74,43 @@ RSpec.describe "Cats", type: :request do
       expect(cats).to be_empty
     end
   end
+  describe "cannot create a cat without valid attributes" do
+    it 'cannot create a cat without a name' do
+      cat_params = {
+        cat: {
+          age: 2,
+          enjoys: 'cuddles and belly rubs'
+        }
+      }
+      post '/cats', params: cat_params
+      cat = JSON.parse(response.body)
+      expect(response).to have_http_status(422)
+      expect(cat['name']).to include "can't be blank"
+    end
+    it 'cannot create a cat without an age' do
+      cat_params = {
+        cat: {
+          name: 'Boo',
+          enjoys: 'cuddles and belly rubs'
+        }
+      }
+      post '/cats', params: cat_params
+      cat = JSON.parse(response.body)
+      expect(response).to have_http_status(422)
+      expect(cat['age']).to include "can't be blank"
+    end
+    it 'cannot create a cat without an enjoys that is at least 10 characters' do
+      cat_params = {
+        cat: {
+          name: 'Boo',
+          age: 2,
+          enjoys: 'cuddles'
+        }
+      }
+      post '/cats', params: cat_params
+      cat = JSON.parse(response.body)
+      expect(response).to have_http_status(422)
+      expect(cat['enjoys']).to include "is too short (minimum is 10 characters)"
+    end
+  end
 end
